@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cssbuoi2bai1</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+        #div_tong{
+            /* background-color: pink; */
+            width: 100%;
+            height: 700px;
+        }
+        #div_tong > #san_ho{
+            height: 100%;
+            width: 25%;
+            background-color: black;
+            float: left;
+            position: relative;
+        }
+        #div_tong > #gay{
+            height: 100%;
+            width: 5%;
+            /* background-color: whitesmoke; */
+            float: left;
+            /* position: relative; */
+        }
+        #div_tong > #sua{
+            height: 100%;
+            width: 70%;
+            /* background-color: limegreen; */
+            float: left;
+            position: relative;
+        }
+        #div_tong > #sua > .anh{
+            width: 10%;
+            height: 10%;
+        }
+        .tieu_de{
+            font-size: 50px;
+            font-weight: bold;
+            color: orangered;
+            font-family: 'Segoe UI';
+        }
+        .chu_thuong{
+            font-family: 'Segoe UI';
+            color: #0d0520;
+        }
+        .center{
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div_tong">
+        <div id="san_ho">
+            <img src="IMAGES/sanho.gif" style="width: 120%; height: 100%; z-index: 99;">
+        </div>
+        <div id="gay">
+            <img src="IMAGES/soc.jpg" style="width: 100%; height: 100%; z-index: 2;">
+        </div>
+        <div id="sua" style="background-image: url('IMAGES/sua1.gif'); background-repeat: no-repeat; background-position: center;">
+            <div>
+                <div class="tieu_de" style="position: absolute; top:3%; left:3%;"> THAM GIA CLB</div>
+                <div class="chu_thuong" style="position: absolute; top: 13%; left: 5%;">Quý độc giả hãy điền đầy đủ thông tin để tham gia phát triển
+                    <br>
+                    câu lạc bộ ngày càng vững mạnh hơn.
+                </div>
+                <div class="center" style="background-color: #a5f8a8; margin: 3px; outline: 3px; padding: 3px ;  position: absolute; left: 5%; top: 20%; width: 64%;">
+                    <table style="">
+                        <form>
+                            <tr>
+                                <td>
+                                    Họ và tên :
+                                </td>
+                                <td>
+                                    <input type="text" style="width: 230px;"> *
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Địa chỉ :
+                                </td>
+                                <td>
+                                    <input type="text" style="width: 330px;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Email :
+                                </td>
+                                <td>
+                                    <input type="text" style="width: 230px;"> *
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Điện thoại :
+                                </td>
+                                <td>
+                                    <input type="text" style="width: 150px;"> *
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Ngày sinh :
+                                </td>
+                                <td>
+                                    <input type="text" style="width: 40px;"> /
+                                    <input type="text" style="width: 40px;"> /
+                                    <input type="text" style="width: 50px;"> *
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Đề tài :
+                                </td>
+                                <td>
+                                    <select name="de_tai">
+                                        <option>
+                                            Tìm hiểu Sứa biển
+                                        </option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Nhóm :
+                                </td>
+                                <td>
+                                    <input type="radio" name="de_tai"> <span> Nghiên cứu</span>
+                                    <br>
+                                    <input type="radio" name="de_tai"> <span> Hải ngư</span>
+                                    <br>
+                                    <input type="radio" name="de_tai"> <span> Viễn dương</span>
+                                    <br>
+                                    <input type="radio" name="de_tai"> <span> Mỹ thuật</span>
+                                    <br>
+                                    <input type="radio" name="de_tai"> <span> Thực phẩm</span>
+                                    <br>
+                                    <input type="radio" name="de_tai"> <span> Sinh viên</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Gởi hình :
+                                </td>
+                                <td>
+                                    <input type="file">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Tài liệu :
+                                </td>
+                                <td>
+                                    <input type="checkbox"> Sinh vật biển
+                                    <br>
+                                    <input type="checkbox"> Các loài sứa biển
+                                    <br>
+                                    <input type="checkbox"> San hô
+                                    <br>
+                                    <input type="checkbox"> Môi trường biển
+                                    <br>
+                                    <input type="checkbox"> Khí hậu
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input type="submit" value="Tham gia">
+                                </td>
+                                <td>
+                                    <input type="reset" value="Xoá thông tin">
+                                </td>
+                            </tr>
+                        </form>
+                    </table>
+                </div>
+            </div>
+            <div class="anh" style="position: absolute; right:10% ">
+                <img src="IMAGES/nhom1b.jpg">
+                <img src="IMAGES/nhom1a.jpg">
+                <img src="IMAGES/nhom1c.jpg">
+                <img src="IMAGES/nhom1d.jpg">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

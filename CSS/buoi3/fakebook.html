@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fakebook</title>
+    <style>
+        body{
+            margin: 0px;
+        }
+        #div_tong{
+            height: 100vh;
+            width: 100%;
+            background-color: #18191a;
+            background-size: cover;
+            /* color: #ffffff; */
+            font-size: 14px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #div_tong > #tren{
+            height: 7%;
+            background-color: #242526;
+            display: flex;
+            /* justify-content: space-between; */
+            position:fixed;
+            width: 100%;
+        }
+        #div_tong > #tren > .trai{
+            flex-grow: 0;
+        }
+        #div_tong > #tren > .giua{
+            flex-grow: 3;
+        }
+        #div_tong > #tren > .phai{
+            flex-grow: 0;
+        }
+        #div_tong > #duoi{
+            height: 100%;
+            /* background-color: blue; */
+            
+        }
+        #div_tong > #duoi > .trai{
+            background-color: #18191a;
+            height: 93%;
+            width: 27%;
+            float: left;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+        #div_tong > #duoi > .giua{
+            background-color: #18191a;
+            height: 93%;
+            width: 46%;
+            /* float: left; */
+            right: 27%;
+            position: absolute;
+            bottom: 0;
+            min-width: 308px;
+            min-height: 583px;
+        }
+        #div_tong > #duoi > .phai{
+            background-color: #18191a;
+            height: 93%;
+            width: 27%;
+            float: left;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+        }
+        .icon_to{
+            width: 40px;
+            height: 40px;
+        }
+        .icon_nho{
+            width: 25px;
+            height: 25px;
+        }
+        .icon_36px{
+            width: 36px;
+            height: 36px;
+        }
+        .a_icon_giua{
+            width: 75px;
+        }
+        .flex_nho{
+            display: flex; 
+            align-items:center;
+            justify-content: start;
+            padding: 10px;
+            
+        }
+        input[type="text"][class="search"]{
+            background: transparent;
+            border: none;
+            border-radius: 15px;
+            height: 25px;
+            background-color: #3a3b3c;
+            cursor: auto;
+            padding: 0px 15px 0px 15px;
+            /* margin: 5px 0; */
+        }
+        input[type="text"][class="inputtrangthai"]{
+            background: transparent;
+            border: none;
+            border-radius: 20px;
+            height: 25px;
+            background-color: #3a3b3c;
+            cursor: auto;
+            color: #e4e6e0;
+            /* padding: 0px 15px 0px 15px; */
+            /* margin: 5px 0; */
+        }
+        input[class="inputtrangthai"]::placeholder{
+            color: #b0b3b8;
+            text-decoration: none;
+        }
+        input[class="search"]::placeholder{
+            color: #8a8d91;
+            text-decoration: none;
+        }
+        *:focus{
+         outline: none; /* Xoá viền trắng khi ấn vào inputbox */
+        }  
+        .flex_giua{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .flex_phai{
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            padding: 10px;
+        }
+        .margin_left{
+            margin-left: 10px;
+        }
+        .margin_right{
+            margin-right: 7px;
+        }
+        ul{
+            list-style-type: none;
+            margin: 0px;
+            padding-left: 8px;
+            padding-right: 8px;
+            
+        }
+        .trai > ul > li >a >div{
+            padding-left: 8px;
+            /* padding-right: 120px; */
+            margin-top: 5px;
+
+        }
+        a:visited{
+            color: #ffffff;
+            text-decoration: none;
+
+        }
+        a:link{
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .divcenter{
+            display: flex; 
+            align-items: center; 
+            justify-content: start;
+            /* margin-right: 10px; */
+            border-radius: 15px;
+            
+        }
+        .divtrangthai{
+            padding: 5px;
+        }
+        .cong{
+            border-radius: 50%;
+        }
+        /* Hover li trai duoi */
+        #duoi > .trai > ul > li > a:hover >div{
+            background-color: #303031;
+        }
+        /* Hover xem them */
+        #duoi > .phai > .xemthem > a:hover .hi{ 
+            background-color: #303031;
+        }
+        /* Hover icon mess chuông các kiểu nhưng đ ai quan tâm */
+        #tren > .phai > a:hover > div{
+            background-color: #3a3b3c;
+        }
+        /* Hover nguoi lien he */
+        #duoi > .phai > .marginleftright > ul > li > a:hover .divcenter{
+            background-color: #303031; 
+        }
+        .topbotpadding{
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        /* Hover loi moi ket ban */
+        #duoi > .phai >.phanbiet > a:hover div{
+            background-color: #303031; 
+        }
+        /* Hover trang thai duoi */
+        #duoi > .giua >.trangthai > .trangthai_duoi > ul > li > a:hover div{
+            background-color: #3a3b3c;
+        }
+        /* Hover phong hop mat */
+        #duoi > .giua > .hopmat > .ultrangthai > li > div[name="hi"] > a:hover div{
+            background-color: #3a3b3c;
+        }
+        .marginleftright{
+            margin-left: 15px; 
+            margin-right: 15px
+        }
+        .marginleftright2{
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        .nutacp{
+            background-color: #2374e1;
+            color: #dfeafb;
+            height: 36px;
+            width: 86px;
+            border-radius: 15px;
+            border:none;
+        }
+        .nutxoa{
+            background-color: #444546;
+            color: #dfeafb;
+            height: 36px;
+            width: 86px;
+            border-radius: 15px;
+            border:none;
+        }
+        .green_dot{
+            border-radius: 7px;
+            height: 8px;
+            width: 8px;
+            background-color: #3fa858;
+            border: 1px solid #28292a;
+            position: absolute; 
+            bottom:2px; 
+            right:-1px
+        }
+        .green_dot2{
+            position: absolute; 
+            top:22%; 
+            left: 41%;  
+            background-color: #3fa858;
+            border: 1px solid #28292a; 
+            border-radius: 50%; 
+            height: 8px; 
+            width: 8px;
+        }
+        .span_avt{
+            height: 36px;
+            width: 36px;
+            position: relative;
+        }
+        .ulstory{
+            list-style: none outside none;
+            margin:0;
+            padding: 0; 
+        }
+        .ulstory > li{
+            float: left; 
+            margin-right: 4px; 
+        }
+        .ultrangthai{
+            margin:0;
+            padding: 0; 
+        }
+        .ultrangthai > li{
+            float: left; 
+            /* margin-right: 5px;  */
+        }
+        .userstory{
+            width: 112px;
+            height: 151px;
+            object-fit: cover;
+            border-radius: 15px 15px 0px 0px;
+            position:relative;
+        }
+        .imgstory{
+            width: 112px;
+            height: 198px;
+            object-fit: cover;
+            position: relative;
+            border-radius: 15px;
+        }
+        .divstory{
+            width: 112px; height: 198px; margin-top: 12px;
+            
+        }
+        
+        .storytext{
+            font-size: .75rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffd6;
+            font-weight: bold;
+        }
+        .divtrongastory{
+            display: flex; 
+            position: relative; 
+            justify-content: center;
+        }
+        .vitristorytext{
+            position: absolute; 
+            bottom: 16px;
+        }
+        .circleavtinstory{
+            border-radius: 50%;
+            position: absolute; 
+            left: 10%; 
+            top: 5%; 
+            border:#297be5 4px solid;
+        }
+        .icon_24px{
+            width: 24px;
+            height: 24px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+        <div id="div_tong">
+            <div id="tren">
+                <div class="trai flex_nho" style="padding: 3px;">
+                    <a href="#" class="margin_left margin_right">
+                        <img src="img/facebook.svg" class="icon_to">
+                    </a>
+                    <div>
+                        <input class="search" type="text" style="width: 150px; font-size: 12px; color: #e4e6e0;" placeholder="Tìm kiếm trên Fakebook">
+                    </div>
+                </div>
+                <div class="giua flex_giua" >
+                    
+                    <a href="#" class="a_icon_giua">
+                        <div>
+                            <img src="img/home.png" class="icon_nho">
+                        </div>
+                    </a>
+                    <a href="#" class="a_icon_giua">
+                        <div>
+                            <img src="img/friend.png" class="icon_nho">
+                        </div>
+                    </a>
+                    <a href="#" class="a_icon_giua">
+                        <div>
+                            <img src="img/group.png" class="icon_nho">
+                        </div>
+                    </a>
+                </div>
+                <div class="phai flex_phai">
+                    <a href="#" class="margin_left">
+                        <div class="cong">
+                            <img src="img/menu.png" class="icon_nho">
+                        </div>
+                    </a>
+                    <a href="#" class="margin_left">
+                        <div class="cong">
+                            <img src="img/mess.png" class="icon_nho">
+                        </div>
+                    </a>
+                    <a href="#" class="margin_left">
+                        <div class="cong">
+                            <img src="img/bell.png" class="icon_nho">
+                        </div>
+                    </a>
+                    <a href="#" class="margin_left">
+                        <img src="img/avt.jpg" class="icon_to" style="border-radius: 50%; margin-left: 5px;">
+                    </a>
+                </div>
+            </div>
+            <div id="duoi">
+                <div class="trai">
+                    <ul class="topbotpadding">
+                        <li>
+                            <a href="#">
+                                <div class="divcenter">
+                                    <img src="img/avt.jpg" class="icon_36px" style="border-radius: 50%"> 
+                                    <span class="margin_left">Nguyễn Hải Đăng</span> 
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="divcenter">
+                                    <img src="img/friendtrai.png" class="icon_36px"> 
+                                    <span class="margin_left">Bạn bè</span> 
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="divcenter">
+                                    <img src="img/reeltrai.png" class="icon_36px"> 
+                                    <span class="margin_left">Reels</span> 
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="divcenter">
+                                    <img src="img/daluutrai.png" class="icon_36px"> 
+                                    <span class="margin_left">Đã lưu</span> 
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="divcenter">
+                                    <img src="img/nhomtrai.png" class="icon_36px"> 
+                                    <span class="margin_left">Nhóm</span> 
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="divcenter">
+                                    <img src="img/marketplacetrai.png" class="icon_36px"> 
+                                    <span class="margin_left">Marketplace</span> 
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="divcenter">
+                                    <img src="img/watchtrai.png" class="icon_36px"> 
+                                    <span class="margin_left">Watch</span> 
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="divcenter">
+                                    <img src="img/kiniemtrai.png" class="icon_36px"> 
+                                    <span class="margin_left">Kỉ niệm</span> 
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="divcenter">
+                                    <img src="img/trangtrai.png" class="icon_36px"> 
+                                    <span class="margin_left">Trang</span> 
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="divcenter">
+                                    <img src="img/sukientrai.png" class="icon_36px"> 
+                                    <span class="margin_left">Sự kiện</span> 
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="giua">
+                    <div class="story" style="color: white; padding-left: 0; padding-top: 8px; padding-bottom: 8px;" >
+                        <ul class="ulstory">
+                            <!-- li user add story -->
+                            <li>
+                                <a href="#">
+                                    <div class="divstory" style="position:relative;">
+                                        <img class="userstory" src="img/avt.jpg">
+                                        <div style="position:absolute;bottom: 0px; width: 112px; height: 48px; background: #242526; border-radius: 0px 0px 15px 15px;">
+                                            
+                                            <div style="position: relative; display: flex; justify-content: center; align-items: center; height: 100%;">
+                                                
+                                                    <img src="img/add.png" style="width: 32px; height:32px; position: absolute; top: -16px;">
+                                                    
+                                                    <div class="storytext"> Tạo tin</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <!-- li another1 story -->
+                            <li>
+                                <a href="#">
+                                    <div class="divstory divtrongastory">
+                                        <img class="imgstory" src="img/avt2.jpg">
+                                        <div class="storytext vitristorytext"  >Ice Bear</div>
+                                        <img src="img/avt2.jpg" class="icon_to circleavtinstory">
+                                        <div class="green_dot2"></div>
+                                  </div>  
+                                </a>
+                                  
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="divstory divtrongastory">
+                                        <img class="imgstory" src="img/avt3.jpg">
+                                        <div class="storytext vitristorytext"  >Grizz</div>
+                                        <img src="img/avt3.jpg" class="icon_to circleavtinstory">
+                                        <!-- <div class="green_dot2" style=""></div> -->
+                                  </div>  
+                                </a>
+                                  
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="divstory divtrongastory">
+                                        <img class="imgstory" src="img/avt6.png">
+                                        <div class="storytext vitristorytext"  >Perry The Platipus</div>
+                                        <img src="img/avt6.png" class="icon_to circleavtinstory">
+                                        <div class="green_dot2"></div>
+                                  </div>  
+                                </a>
+                                  
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="trangthai" style="width: 100%; height: 124px; margin-top: -20px;background-color: #242526; display: flex; position:relative; top: 15px; border-radius: 15px; display: flex; flex-direction: column;">
+                        <div class="trangthai_tren" style="color: white; height: 50%;">
+                            <a href="#">
+                                    <img src="img/avt.jpg" class="icon_36px" style="border-radius: 50%; margin:8px">
+                            </a>
+                            
+                                    <div>
+                                            <input type="text" class="inputtrangthai" placeholder="Hải Đăng ơi, bạn đang nghĩ gì thế?" style="width:80%; position:absolute; top: 10px; left: 12% ; height: 36px; padding: 0px 15px 0px 15px;">
+                                    </div>
+                        </div>
+                        
+                        <div class="trangthai_duoi marginleftright2"  style="color: white; height: 50%; border-top: 1px solid #3e4042; margin-top: 0px; padding-top: 5px; display: flex; ; align-items: center; justify-content: center;">
+                            <ul class="ultrangthai" class="marginleftright" >
+                                <li>
+                                    <a href="#">
+                                        <div class="divcenter divtrangthai marginleftright2">
+                                            <img src="img/live.png" class="icon_24px margin_right">
+                                            <span>Video trực tiếp</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="divcenter divtrangthai marginleftright2">
+                                            <img src="img/picture.png" class="icon_24px margin_right">
+                                            <span>Ảnh/video</span>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="divcenter divtrangthai marginleftright2">
+                                            <img src="img/smile.png" class="icon_24px margin_right">
+                                            <span>Cảm xúc/Hoạt động</span>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                        
+                    </div>
+
+
+                    <div class="trangthai hopmat" style="width: 100%; height: 56px; margin-top: 15px;background-color: #242526; display: flex; position:relative; top: 15px; border-radius: 15px; display: flex; color: white;">
+                        <ul class="ultrangthai">
+                            <li>
+                                <div style="display: flex; height: 56px; align-items: center; " name="hi" class="marginleftright" >
+                                    <a href="#">
+                                        <div style="display: flex; justify-content:center; align-items:center; border-radius: 15px; padding: 7px; border: 2px #263951 solid;">
+                                            <img src="img/meet.png" class="icon_24px margin_right">
+                                            <span style="color: #4599dc;">Tạo phòng họp mặt</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div style="display: flex; height: 56px; align-items: center;">
+                                    <a href="#">
+                                        <div style="display: flex; justify-content:center; align-items:center">
+                                            <img src="img/avt2.jpg" class="icon_to" style="border-radius: 50%; margin-left: 15px;">
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div style="display: flex; height: 56px; align-items: center;">
+                                    <a href="#">
+                                        <div style="display: flex; justify-content:center; align-items:center">
+                                            <img src="img/avt3.jpg" class="icon_to" style="border-radius: 50%; margin-left: 15px;">
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div style="display: flex; height: 56px; align-items: center;">
+                                    <a href="#">
+                                        <div style="display: flex; justify-content:center; align-items:center">
+                                            <img src="img/avt4.jpg" class="icon_to" style="border-radius: 50%; margin-left: 15px;">
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div style="display: flex; height: 56px; align-items: center;">
+                                    <a href="#">
+                                        <div style="display: flex; justify-content:center; align-items:center">
+                                            <img src="img/avt5.jpg" class="icon_to" style="border-radius: 50%; margin-left: 15px;">
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div style="width: 100%; height: 200%; background-color: #242526; margin-top: 30px;">
+
+                    </div>
+                </div>
+
+               
+                <div class="phai">
+                    <div style="position: relative;" class="topbotpadding marginleftright xemthem">
+                        <div style="color: #b0b3b8;">
+                            Lời mời kết bạn
+                        </div>
+                        <a href="#">
+                            <div style="color: #4599ff; font-size: 12px; width: 70px; position: absolute; right: 0; top: 15px; display: flex; justify-content: center; border-radius: 15px;" class="hi">
+                                Xem tất cả
+                            </div>
+                        </a> 
+                    </div>
+                    
+                    
+                    <div class="phanbiet">
+                        <a href="#" name="friend">
+                            <div class="marginleftright friendrequest" style="position: relative; border-radius: 15px; margin-bottom: 10px;">
+                                <img src="img/avt.jpg" style="width:60px;height:60px; border-radius:50%; margin-right: 10px;">
+                                <div style="position: absolute; top: 0px; left: 27%;">
+                                    Đăng Thứ 2
+                                </div>
+                                <div style="color: #b0b3b8; font-size:11px; position:absolute;top:0px; right: 10px;">
+                                    35 phút
+                                </div>
+                                <div name="button" style="position: absolute; top:23px; left: 28%;">
+                                            <input type="button" class="nutacp" value="Xác nhận" style="width:75px">
+                                            <input type="button" class="nutxoa" value="Xoá" style="width:75px">
+                                </div> 
+                            </div>
+                        </a>
+                    </div>
+                    
+
+                    
+                    <div class="marginleftright" name="phaiduoi" style="border-top: 1px solid #3e4042;">
+                        <div style="color: #b0b3b8;margin-top: 10px;">
+                            Người liên hệ
+                        </div>
+                        <ul style="margin-top: 10px;">
+                            <li style="margin-top: 10px;">
+                                <a href="#">
+                                    <div class="divcenter">
+                                        <span class="span_avt">
+                                            <img src="img/avt2.jpg" class="icon_36px" style="border-radius: 50%;"> 
+                                            <div class="green_dot"></div>
+                                        </span>
+                                        <span class="margin_left">Ice Bear</span> 
+                                    </div>
+                                </a>
+                            </li>
+                            <li style="margin-top: 10px;">
+                                <a href="#">
+                                    <div class="divcenter">
+                                        <span class="span_avt">
+                                            <img src="img/avt3.jpg" class="icon_36px" style="border-radius: 50%;"> 
+                                            <!-- <div class="green_dot"></div> -->
+                                        </span>
+                                        <span class="margin_left">Grizz</span> 
+                                    </div>
+                                </a>
+                            </li>
+                            <li style="margin-top: 10px;">
+                                <a href="#">
+                                    <div class="divcenter">
+                                        <span class="span_avt">
+                                            <img src="img/avt4.jpg" class="icon_36px" style="border-radius: 50%;"> 
+                                            <div class="green_dot"></div>
+                                        </span>
+                                        <span class="margin_left">Tom Cat</span> 
+                                    </div>
+                                </a>
+                            </li>
+                            <li style="margin-top: 10px;">
+                                <a href="#">
+                                    <div class="divcenter">
+                                        <span class="span_avt">
+                                            <img src="img/avt5.jpg" class="icon_36px" style="border-radius: 50%;"> 
+                                            <div class="green_dot"></div>
+                                        </span>
+                                        <span class="margin_left">Jerry Mouse</span> 
+                                    </div>
+                                </a>
+                            </li>
+                            <li style="margin-top: 10px;">
+                                <a href="#">
+                                    <div class="divcenter">
+                                        <span class="span_avt">
+                                            <img src="img/avt6.png" class="icon_36px" style="border-radius: 50%;"> 
+                                            <div class="green_dot"></div>
+                                        </span>
+                                        <span class="margin_left">Perry The Platypus</span> 
+                                    </div>
+                                </a>
+                            </li>
+                            <li style="margin-top: 10px;">
+                                <a href="#">
+                                    <div class="divcenter">
+                                        <span class="span_avt">
+                                            <img src="img/avt7.gif" class="icon_36px" style="border-radius: 50%;"> 
+                                            <!-- <div class="green_dot"></div> -->
+                                        </span>
+                                        <span class="margin_left">I'll telling mum gỉl</span> 
+                                    </div>
+                                </a>
+                            </li>
+                            <li style="margin-top: 10px;">
+                                <a href="#">
+                                    <div class="divcenter">
+                                        <span class="span_avt">
+                                            <img src="img/avt8.jpg" class="icon_36px" style="border-radius: 50%;"> 
+                                            <div class="green_dot"></div>
+                                        </span>
+                                        <span class="margin_left">Nảuto</span> 
+                                    </div>
+                                </a>
+                            </li>
+                            <li style="margin-top: 10px;">
+                                <a href="#">
+                                    <div class="divcenter">
+                                        <span class="span_avt">
+                                            <img src="img/avt9.jpg" class="icon_36px" style="border-radius: 50%;"> 
+                                            <!-- <div class="green_dot"></div> -->
+                                        </span>
+                                        <span class="margin_left">Lùfy</span> 
+                                    </div>
+                                </a>
+                            </li>
+                            <li style="margin-top: 10px;">
+                                <a href="#">
+                                    <div class="divcenter">
+                                        <span class="span_avt">
+                                            <img src="img/avt10.png" class="icon_36px" style="border-radius: 50%;"> 
+                                            <div class="green_dot"></div>
+                                        </span>
+                                        <span class="margin_left">Róck Lee</span> 
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+</body>
+</html>
