@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>jsbuoi1bai1</title>
+	<title>jsbuoi1bai2</title>
     <style>
         body{
             padding: 0px;
@@ -13,7 +13,7 @@
         #div_tong{
             width: 100%;
             height: 100vh;
-            background-image: url('https://pbs.twimg.com/media/EgLXfmHVoAUbd9h?format=jpg&name=large');
+            background-image: url('https://pbs.twimg.com/media/Fbz1qCfaIAAmMEk?format=jpg&name=large');
             background-size: cover;
             background-repeat: no-repeat;
             display: flex;
@@ -88,7 +88,7 @@
         <div class="box">
             <div class="tren" style="position: relative; display: flex; align-items: center;">
                 <div class="tieude" style="display: flex; position: absolute; width: 100%; justify-content: center; align-items: center; font-size: 14px; font-weight: bold;">
-                    Tính số ngày trong tháng
+                    Tính lương cho nhân viên
                 </div>
                 <div style="display: flex; position: absolute; margin-left: 10px; margin-right: 10px;" class="gaytask">
                     <a href="#">
@@ -108,11 +108,9 @@
                     <div style="margin-top:20px; margin-left: 50px; margin-right: 50px; margin-bottom: 20px;">
                         <ul>
                             <li style="display: flex; justify-content:center">
-                                <span> Tháng: </span>
-                                <input type="number" style="border-radius:15px; border:none; border: 1px black solid; padding-left: 5px; padding-right: 5px; margin-left: 5px; margin-right: 20px; width: 70px;" placeholder="VD: 2" id="input_thang">
-                                <span> Năm: </span>
-                                <input type="number" style="border-radius:15px; border:none; border: 1px black solid; padding-left: 5px; padding-right: 5px; margin-left: 5px; margin-right: 60px; width: 70px;" placeholder="VD: 2004" id="input_nam">
-                                <input name="button_xac_nhan" type="button" value="Tính ngày trong tháng" onclick="in_ra()">
+                                <span> Lương: </span>
+                                <input type="number" style="border-radius:15px; border:none; border: 1px black solid; padding-left: 5px; padding-right: 5px; margin-left: 5px; margin-right: 60px; width: 200px;" placeholder="Nhập lương nhân viên (triệu)" id="input_luong">
+                                <input name="button_xac_nhan" type="button" value="Tính lương nhân viên" onclick="in_ra()">
                             </li>
                             <li style="display: flex; justify-content:center; align-items: center;">
                                 
@@ -132,49 +130,28 @@
     
 <script>
     function in_ra(){
-        let thang = parseInt(document.getElementById("input_thang").value);
-        let nam = parseInt(document.getElementById("input_nam").value);
-        let ngay;
-
-        if(thang >12 || thang <1){
-            alert("Tháng nhập bị sai kìa gái")
-        } else if(nam<0){
-            alert("Không biết là công thức có hoạt động với năm âm không nhưng cứ thế này cho chắc")
-        } else if(isNaN(thang)){
-            alert("Tháng không được để trống")
-        } else if(isNaN(nam)){
-            alert("Năm không được để trống")
+        let luong_ban_dau = parseInt(document.getElementById("input_luong").value);
+        let luong_chuan;
+        let thue;
+        if(luong_ban_dau<0){
+            alert("Có ai làm không công mà còn phải trả tiền cho m nữa hả mă")
+        } else if(isNaN(luong_ban_dau)){
+            alert("Sao m không nhập? Có thể ấn mà không biết nhập à =))")
         } else{
-        switch(thang){
-            case 1:
-            case 3:
-            case 5:
-            case 7:
-            case 8:
-            case 10:
-            case 11:
-                ngay=31;
-                break;
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                ngay='30';
-                break;
-            case 2:
-                if(nam % 400 == 0 || (nam % 4 == 0 && nam % 100 != 0)){
-                    ngay = 29;
-                } else {
-                    ngay = 28;
-                }
-                break;
+                if(luong_ban_dau==15){
+                thue = luong_ban_dau*30/100;
+            } else if(luong_ban_dau >= 7 && luong_ban_dau<15){
+                thue = luong_ban_dau*20/100;
+            } else if(luong_ban_dau <7 && luong_ban_dau>=0){
+                thue=luong_ban_dau*10/100;
+            }
+            luong_chuan=luong_ban_dau-thue;
+                document.getElementById("ket_qua").innerHTML=`Lương ban đầu: ${luong_ban_dau} | Thuế thu nhập: ${thue} | Lương chuẩn ${luong_chuan}`
         }
-        
 
-        document.getElementById("ket_qua").innerHTML = `Số ngày của tháng ${thang} năm ${nam} là ${ngay}`
-        
-        }
     }
+    
+    
     
 
 </script>
