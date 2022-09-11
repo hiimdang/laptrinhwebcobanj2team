@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>jsbuoi2bai1</title>
+    <style>
+        html {
+            height: -webkit-fill-available; /* We have to fix html height */
+        }
+        body{
+            padding: 0px;
+            margin: 0px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #div_tong{
+            width: 100%;
+            height: 100vh;
+            background-image: url('https://pbs.twimg.com/media/FcSmRYpaAAID9ZL?format=jpg&name=large');
+            background-size: cover;
+            background-repeat: no-repeat;
+            display: flex;
+            /* align-items: flex-start; */
+            justify-content: center;
+        }
+        input[id="input_so"]{
+            border-radius: 15px;
+            border:none;
+            /* border: 1px solid black; */
+        }
+        input[id="input_so"]{
+            text-align: center;
+            outline: none;
+            background-color: #00b0fc;
+            color: #ffffff;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        input[id="input_so"]::placeholder{
+            text-align: center;
+            color: #ffffff;
+        }
+        button[id="button_push"]{
+            background-color: rgb(4,170,109);
+            color: #f1faf5;
+            border: none;
+            cursor:pointer;
+            padding-left: 5px;
+            padding-right: 5px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-radius: 15px;
+            text-align: center;
+            width: 150px;
+        }
+        button[id="button_push"]:hover{
+            background-color: rgb(5,152,98);
+        }
+        #div_tong > .div_ul> ul{
+            margin-top: 50px;
+            list-style: none;
+            padding: 0px;
+            width: 60%;
+            display: flex;
+            justify-content: center;
+        }
+        ul{
+            padding-inline-start: 0px;
+        }
+        ul > li{
+            width: 550px;
+            display: flex;
+            justify-content: center;
+            
+        }
+        #div_tong > form > .div_ul> ul > li > .output{
+            background-color: rgb(255, 255, 255,0.55);
+            border-radius: 15px;
+            display: none;
+            width: 120%;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div_tong">
+        <form>
+        <div class="div_ul">
+            <ul>
+                <li>
+                    <input id="input_so" type="number" placeholder="Nhập số phần tử của mảng" style="width:200px; margin-right: 20px;">
+                    <button id="button_push" onclick="hien_cai_bang(); in_ra();" type="button">Phát sinh và tính toán</button>
+                </li>
+                <li style="margin-top: 30px;  height: 35vh; ">
+                    <div class="output" id="output">
+                        
+                    </div>
+                </li>
+            </ul>
+        </div>
+        </form>
+    </div>
+    <script>
+        let input= document.getElementById("input_so");
+        input.addEventListener("keypress", function(event) {
+        // If the user presses the "Enter" key on the keyboard
+            if (event.key === 'Enter') {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // Trigger the button element with a click
+                document.getElementById("button_push").click();
+            }
+        });
+
+
+        function hien_cai_bang(){
+            let so = parseFloat(document.getElementById("input_so").value)
+            if(isNaN(so)){
+                alert("Nhập số đi gái")
+            } else{
+                document.getElementById("output").style.display='block'
+            }
+            
+        }
+        var mang=[];
+
+        function in_ra(){
+            let so = parseFloat(document.getElementById("input_so").value)
+            if(isNaN(so)){
+                // Em có thử not isNaN mà không được, để em nghiên cứu lại sau nhưng cơ bản em chỉ kiểm tra nếu có giá trị :> nên chắc là .isInteger với .isFloat nhưng thế thì lâu quá =))
+                } else {
+                    mang=[];
+                    var tong_mang=0;
+                    // document.getElementById("output").innerHTML='';
+                    for(let i = 0; i<so; i++){
+                        mang[i]=Math.floor(Math.random() * 50) + 1;
+                        tong_mang+=mang[i];
+                    }
+                    // sort mang cho de
+                    mang.sort(function(a, b){return a-b});
+                    
+                    document.getElementById("output").innerHTML='Các phần tử của mảng sau khi đã sắp xếp (ngẫu nhiên từ 1-50): ';
+                    xuong_dong();
+                    for(let i=0; i<mang.length;i++){
+                        document.getElementById("output").innerHTML+=mang[i] + ' ';
+                    }
+                    xuong_dong();
+                    document.getElementById("output").innerHTML+=`Phần tử bé nhất của mảng là: ${mang[0]}`
+                    xuong_dong();
+                    document.getElementById("output").innerHTML+=`Phần tử lớn nhất của mảng là: ${mang[mang.length-1]}`
+                    xuong_dong();
+                    document.getElementById("output").innerHTML+=`Tổng mảng: ${tong_mang}`
+                    // lam rong input
+                    document.getElementById("input_so").innerHTML='';
+                }
+        }
+        function xuong_dong(){
+            document.getElementById("output").innerHTML+= '<br>'
+        }
+        
+        
+
+        
+    </script>
+</body>
+</html>

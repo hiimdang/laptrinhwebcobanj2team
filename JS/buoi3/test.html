@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <input type="number" id="input">
+        <button type="button" onclick="in_ra()">an vao</button>
+        <div id="output"></div>
+    <script>
+        function in_ra(){
+            let a= document.getElementById("input").value;
+            
+
+            while (a.length < 6) {
+            a=0+a;
+            }
+            let ma_mau = '#' + a
+            document.getElementById("output").innerHTML=`${ma_mau}`
+        }
+
+    </script>
+</body>
+</html>
