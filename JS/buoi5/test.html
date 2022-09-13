@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        Tên
+        <input type="text" id="ten">
+        <span id="error_ten"></span>
+        <br>
+        Ngày sinh
+        <input type="date" id="ngay_sinh">
+        <span id="error_ngay_sinh"></span>
+        <br>
+        Giới tính
+        <input type="radio" name="gioi_tinh">Nam
+        <input type="radio" name="gioi_tinh">Nu
+        <span id="error_gioi_tinh"></span>
+        <br>
+        Email
+        <input type="email" id="email">
+        <span id="error_email"></span>
+        <br>
+        Mật khẩu
+        <input type="password" id="mat_khau">
+        <span id="error_password"></span>
+        <br>
+        Lớp
+        <select>
+            <option>Lập trình</option>
+            <option>Bảo mật</option>
+        </select>
+        <span id="error_lop"></span>
+        <button type="submit" onclick="return kiem_tra()">Đăng ký</button>
+    </form>
+    <script>
+        function kiem_tra(){
+            document.getElementById("error_ten").innerHTML=``;
+            let kiem_tra_loi = false;
+            // ten
+            let ten = document.getElementById("ten").value;
+            if(ten.length === 0){
+                document.getElementById("error_ten").innerHTML=`Tên không được để trống`;
+                kiem_tra_loi=true;
+            } else {
+                let regex_ten= /^([A-ZÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ][a-zàáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹý]{1,6} ?)+$/
+                if (regex_ten.test(ten) == false){
+                    document.getElementById("error_ten").innerHTML=`Tên không hợp lệ`;
+                }
+            }
+
+            
+            // ngay sinh
+            document.getElementById("error_ngay_sinh").innerHTML=``;
+            let ngay_sinh=document.getElementById("ngay_sinh").value;
+            if(ngay_sinh.length === 0){
+                document.getElementById("error_ngay_sinh").innerHTML=`Ngày sinh không được để trống`;
+                kiem_tra_loi=true;
+            }
+
+            // gioi tinh
+            document.getElementById("error_gioi_tinh").innerHTML=``;
+            let mang_gioi_tinh = document.getElementsByName("gioi_tinh");
+            let kiem_tra_gioi_tinh = false;
+            for(let i=0; i<mang_gioi_tinh.length;i++){
+                if(mang_gioi_tinh[i].checked){
+                    kiem_tra_gioi_tinh = true;
+                }
+            }
+
+            if(kiem_tra_gioi_tinh==false){
+                document.getElementById("error_gioi_tinh").innerHTML=`Giới tính không được để trống`;
+            }
+
+
+            if(kiem_tra_loi){
+                return false;
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSBuoi5</title>
+    <style>
+        body{
+            padding: 0px;
+            background-image: url("https://images-na.ssl-images-amazon.com/images/I/61LPYabUIAL.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #div_tong{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100vh;
+        }
+        #div_tong > .box{
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-right: 20px;
+            padding-left: 20px;
+            background-color: rgba(240, 236, 229, 0.75);
+            width: 40%;
+            height: 93%;
+            border-radius: 15px;
+            font-size: 14px;
+        }
+        #div_tong > .box > .form_box > .tren{
+            /* background-color: aqua; */
+            height: 6vh;
+            width: 100%;
+            font-size: 29px;
+            font-weight: bold;
+            color: #04aa9c;
+            cursor: default;
+        }
+        #div_tong > .box  > .form_box > .giua{
+            /* background-color: red; */
+            height: 75vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        #div_tong > .box > .form_box > .duoi{
+            /* background-color: green; */
+            height: 14vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0px;
+
+        }
+        .tieu_de{
+            font-size: 16px;
+            font-weight: bold;
+            font-family: Source Sans Pro;
+            cursor: default;
+            margin-top: 5px;
+            color: #282a35;
+        }
+        input{
+            border-radius: 15px;
+            border: 1px #bdc3c8 solid;
+            outline: none;
+            height: 18px;
+            margin-top: 6px;
+            margin-bottom: 0px;
+            padding: 14px;
+            width: 93%;
+            
+        }
+        input:focus{
+            border: 1px rgba(240, 236, 229, 0.75) solid;
+            outline: #1d9bf0 2px solid;
+        }
+        .ico{
+            height: 10px;
+            width: 10px;
+        }
+        .ben_phai{
+            font-weight: normal;
+            font-size: 13px;
+            font-family: Source Sans Pro;
+            cursor: pointer;
+        }
+        .tieu_de_flex{
+            display: flex; 
+            justify-content:space-between;
+            align-items: flex-end;
+        }
+        .red{
+            color: red;
+        }
+        button[type="submit"]{
+            background-color: #04aa6d;
+            border:none;
+            cursor: pointer;
+            width: 100%;
+            height: 50px;
+            border-radius: 25px;
+            color: #ffffe8;
+            font-family: Source Sans Pro,sans-serif;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        button[type="submit"]:hover{
+            background-color: #059862;
+            border: 1px rgba(240, 236, 229, 0.75) solid;
+            outline: 2px #04aa6d solid;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <!-- Giao dien -->
+    <div id="div_tong">
+            <div class="box">
+                <form class="form_box">
+                <div class="tren">
+                    <div>Sign up</div>
+                </div>
+                <div class="giua">
+                    <div class="tieu_de">
+                        Tên: <Span class="red">*</Span>
+                    </div>
+                    <input id="input_ten" type="text">
+                    <span class="red" id="loi_ten"></span>                        <!-- Loi ten-->
+                    <div class="tieu_de">
+                        Email: <Span class="red">*</Span>
+                    </div>
+                    <input id="input_email" type="email">
+                    <span class="red" id="loi_email"></span>                    <!-- Loi email -->
+                    <div class="tieu_de tieu_de_flex">
+                        <div>
+                            Mật khẩu:
+                            <span class="red">*</span>
+                        </div>
+                        <div class="ben_phai" id="show_hide_password" onclick="show_hide_password_func()">
+                            <img src="img/eye.svg" class="ico" id="show_hide_img_mk">
+                            <span id="span_show_hide_mk">
+                                Show
+                            </span>
+
+                        </div>
+                    </div>
+                    <input id="input_mat_khau" type="password">
+                    <span class="red" id="loi_mat_khau"></span>                    <!-- Loi mk -->
+                    <div class="tieu_de tieu_de_flex">
+                        <div>
+                            Nhập lại mật khẩu:
+                            <span class="red">*</span>
+                        </div>
+                        <div class="show_hide_nl_password ben_phai" onclick="show_hide_nl_password_func()"> 
+                            <img src="img/eye.svg" class="ico" id="show_hide_img_nl_mk">
+                            <span id="span_show_hide_nl_mk">
+                                Show
+                            </span>
+                        </div>
+                    </div>
+                    <input id="input_nhap_lai_mat_khau" type="password">
+                    <span class="red" id="loi_nhap_lai_mat_khau"></span>            <!-- loi mk2 -->
+                    <div class="tieu_de">
+                        Ngày sinh: <Span class="red">*</Span>
+                    </div>
+                    <input id="input_ngay_sinh" type="date">
+                    <span class="red" id="loi_ngay_sinh"></span>                    <!-- loi ngay sinh -->
+                    
+                </div>
+                <div class="duoi">
+                    <button type="submit" onclick="return kiem_tra()">Sign up for free</button>
+                </div>
+                </form>
+            </div>
+    </div>
+
+    <!-- Script -->
+    <script>
+        function kiem_tra(){
+            let kiem_tra_loi = false;
+
+            // Ten
+            document.getElementById("loi_ten").innerHTML=``
+            let ten = document.getElementById("input_ten").value;
+
+            if(ten.length == 0){
+                kiem_tra_loi = true;
+                document.getElementById("loi_ten").innerHTML=`Tên không được để trống á pà.`;
+            }else{
+                    
+                    let regex_ten = /^([A-ZÀÁÃẠẢĂẮẰẲẴẶÂẤẦẨẪẬÈÉẸẺẼÊỀẾỂỄỆĐÌÍĨỈỊÒÓÕỌỎÔỐỒỔỖỘƠỚỜỞỠỢÙÚŨỤỦƯỨỪỬỮỰỲỴỶỸÝ][a-zàáãạảăắằẳẵặâấầẩẫậèéẹẻẽêềếểễệđìíĩỉịòóõọỏôốồổỗộơớờởỡợùúũụủưứừửữựỳỵỷỹý]{1,6} ?)+$/
+                    if (regex_ten.test(ten) == false){
+                        kiem_tra_loi = true;
+                        document.getElementById("loi_ten").innerHTML=`Tên không hợp lệ, kiểm tra lại đi pà.`;
+                    }
+                }
+             
+
+            // Email
+            document.getElementById("loi_email").innerHTML=``;
+            let email = document.getElementById("input_email").value;
+            if(email.length == 0){
+                kiem_tra_loi=true;
+                document.getElementById("loi_email").innerHTML=`Email không được để trống á pà.`;
+            }
+
+            // MK
+            document.getElementById("loi_mat_khau").innerHTML=``;
+            let mat_khau = document.getElementById("input_mat_khau").value;
+            if(mat_khau.length == 0){
+                kiem_tra_loi=true;
+                document.getElementById("loi_mat_khau").innerHTML=`Mật khẩu không được để trống á pà.`;
+            }
+
+            // Nhap lai MK
+            document.getElementById("loi_nhap_lai_mat_khau").innerHTML=``;
+            let nhap_lai_mat_khau = document.getElementById("input_nhap_lai_mat_khau").value;
+            if(nhap_lai_mat_khau.length == 0){
+                kiem_tra_loi=true;
+                document.getElementById("loi_nhap_lai_mat_khau").innerHTML=`Mật khẩu không được để trống á pà.`;
+            } else {
+                if(nhap_lai_mat_khau != mat_khau){
+                    kiem_tra_loi=true;
+                    document.getElementById("loi_nhap_lai_mat_khau").innerHTML=`Mật khẩu không trùng kìa pà.`;
+                }
+            }
+
+            // Ngay sinh
+            document.getElementById("loi_ngay_sinh").innerHTML=``;
+            let ngay_sinh = document.getElementById("input_ngay_sinh").value;
+            if(ngay_sinh.length == 0){
+                kiem_tra_loi=true;
+                document.getElementById("loi_ngay_sinh").innerHTML=`Ngày sinh không được để trống á pà.`
+            }
+
+            // Kiểm tra lỗi
+            if(kiem_tra_loi){
+                return false;
+            }
+        }
+
+        // Show-hide password
+        function show_hide_password_func(){
+            let x = document.getElementById("input_mat_khau");
+            if (x.type === "password") {
+                x.type = "text";
+                document.getElementById("span_show_hide_mk").innerHTML=`Hide`
+                document.getElementById("show_hide_img_mk").src="img/eye_hidden.svg"
+            } else {
+                x.type = "password";
+                document.getElementById("span_show_hide_mk").innerHTML=`Show`
+                document.getElementById("show_hide_img_mk").src="img/eye.svg"
+            }
+        }
+        //Show-hide nlpassword
+        function show_hide_nl_password_func(){
+            let x = document.getElementById("input_nhap_lai_mat_khau");
+            if (x.type === "password") {
+                x.type = "text";
+                document.getElementById("span_show_hide_nl_mk").innerHTML=`Hide`
+                document.getElementById("show_hide_img_nl_mk").src="img/eye_hidden.svg"
+            } else {
+                x.type = "password";
+                document.getElementById("span_show_hide_nl_mk").innerHTML=`Show`
+                document.getElementById("show_hide_img_nl_mk").src="img/eye.svg"
+            }
+        }
+    </script>
+    
+</body>
+</html>
