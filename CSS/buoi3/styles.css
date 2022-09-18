@@ -1,0 +1,315 @@
+
+        body{
+            margin: 0px;
+        }
+        #div_tong{
+            height: 100vh;
+            width: 100%;
+            background-color: #18191a;
+            background-size: cover;
+            /* color: #ffffff; */
+            font-size: 14px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #div_tong > #tren{
+            height: 7%;
+            background-color: #242526;
+            display: flex;
+            /* justify-content: space-between; */
+            position:fixed;
+            width: 100%;
+            z-index: 99;
+        }
+        #div_tong > #tren > .trai{
+            flex-grow: 0;
+        }
+        #div_tong > #tren > .giua{
+            flex-grow: 3;
+        }
+        #div_tong > #tren > .phai{
+            flex-grow: 0;
+        }
+        #div_tong > #duoi{
+            height: 100%;
+            /* background-color: blue; */
+            
+        }
+        #div_tong > #duoi > .trai{
+            background-color: #18191a;
+            height: 93%;
+            width: 27%;
+            float: left;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+        #div_tong > #duoi > .giua{
+            background-color: #18191a;
+            height: 93%;
+            width: 46%;
+            /* float: left; */
+            right: 27%;
+            position: absolute;
+            bottom: 0;
+            min-width: 308px;
+            min-height: 583px;
+        }
+        #div_tong > #duoi > .phai{
+            background-color: #18191a;
+            height: 93%;
+            width: 27%;
+            float: left;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+        }
+        .icon_to{
+            width: 40px;
+            height: 40px;
+        }
+        .icon_nho{
+            width: 25px;
+            height: 25px;
+        }
+        .icon_36px{
+            width: 36px;
+            height: 36px;
+        }
+        .a_icon_giua{
+            width: 75px;
+        }
+        .flex_nho{
+            display: flex; 
+            align-items:center;
+            justify-content: start;
+            padding: 10px;
+            
+        }
+        input[type="text"][class="search"]{
+            background: transparent;
+            border: none;
+            border-radius: 15px;
+            height: 25px;
+            background-color: #3a3b3c;
+            cursor: auto;
+            padding: 0px 15px 0px 15px;
+            /* margin: 5px 0; */
+        }
+        input[type="text"][class="inputtrangthai"]{
+            background: transparent;
+            border: none;
+            border-radius: 20px;
+            height: 25px;
+            background-color: #3a3b3c;
+            cursor: auto;
+            color: #e4e6e0;
+            /* padding: 0px 15px 0px 15px; */
+            /* margin: 5px 0; */
+        }
+        input[class="inputtrangthai"]::placeholder{
+            color: #b0b3b8;
+            text-decoration: none;
+        }
+        input[class="search"]::placeholder{
+            color: #8a8d91;
+            text-decoration: none;
+        }
+        *:focus{
+         outline: none; /* Xoá viền trắng khi ấn vào inputbox */
+        }  
+        .flex_giua{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .flex_phai{
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            padding: 10px;
+        }
+        .margin_left{
+            margin-left: 10px;
+        }
+        .margin_right{
+            margin-right: 7px;
+        }
+        ul{
+            list-style-type: none;
+            margin: 0px;
+            padding-left: 8px;
+            padding-right: 8px;
+            
+        }
+        .trai > ul > li >a >div{
+            padding-left: 8px;
+            /* padding-right: 120px; */
+            margin-top: 5px;
+
+        }
+        a:visited{
+            color: #ffffff;
+            text-decoration: none;
+
+        }
+        a:link{
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .divcenter{
+            display: flex; 
+            align-items: center; 
+            justify-content: start;
+            /* margin-right: 10px; */
+            border-radius: 15px;
+            
+        }
+        .divtrangthai{
+            padding: 5px;
+        }
+        .cong{
+            border-radius: 50%;
+        }
+        /* Hover li trai duoi */
+        #duoi > .trai > ul > li > a:hover >div{
+            background-color: #303031;
+        }
+        /* Hover xem them */
+        #duoi > .phai > .xemthem > a:hover .hi{ 
+            background-color: #303031;
+        }
+        /* Hover icon mess chuông các kiểu nhưng đ ai quan tâm */
+        #tren > .phai > a:hover > div{
+            background-color: #3a3b3c;
+        }
+        /* Hover nguoi lien he */
+        #duoi > .phai > .marginleftright > ul > li > a:hover .divcenter{
+            background-color: #303031; 
+        }
+        .topbotpadding{
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+        /* Hover loi moi ket ban */
+        #duoi > .phai >.phanbiet > a:hover div{
+            background-color: #303031; 
+        }
+        /* Hover trang thai duoi */
+        #duoi > .giua >.trangthai > .trangthai_duoi > ul > li > a:hover div{
+            background-color: #3a3b3c;
+        }
+        /* Hover phong hop mat */
+        #duoi > .giua > .hopmat > .ultrangthai > li > div[name="hi"] > a:hover div{
+            background-color: #3a3b3c;
+        }
+        .marginleftright{
+            margin-left: 15px; 
+            margin-right: 15px
+        }
+        .marginleftright2{
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+        .nutacp{
+            background-color: #2374e1;
+            color: #dfeafb;
+            height: 36px;
+            width: 86px;
+            border-radius: 15px;
+            border:none;
+        }
+        .nutxoa{
+            background-color: #444546;
+            color: #dfeafb;
+            height: 36px;
+            width: 86px;
+            border-radius: 15px;
+            border:none;
+        }
+        .green_dot{
+            border-radius: 7px;
+            height: 8px;
+            width: 8px;
+            background-color: #3fa858;
+            border: 1px solid #28292a;
+            position: absolute; 
+            bottom:2px; 
+            right:-1px
+        }
+        .green_dot2{
+            position: absolute; 
+            top:22%; 
+            left: 41%;  
+            background-color: #3fa858;
+            border: 1px solid #28292a; 
+            border-radius: 50%; 
+            height: 8px; 
+            width: 8px;
+        }
+        .span_avt{
+            height: 36px;
+            width: 36px;
+            position: relative;
+        }
+        .ulstory{
+            list-style: none outside none;
+            margin:0;
+            padding: 0; 
+        }
+        .ulstory > li{
+            float: left; 
+            margin-right: 4px; 
+        }
+        .ultrangthai{
+            margin:0;
+            padding: 0; 
+        }
+        .ultrangthai > li{
+            float: left; 
+            /* margin-right: 5px;  */
+        }
+        .userstory{
+            width: 112px;
+            height: 151px;
+            object-fit: cover;
+            border-radius: 15px 15px 0px 0px;
+            position:relative;
+        }
+        .imgstory{
+            width: 112px;
+            height: 198px;
+            object-fit: cover;
+            position: relative;
+            border-radius: 15px;
+        }
+        .divstory{
+            width: 112px; height: 198px; margin-top: 12px;
+            
+        }
+        
+        .storytext{
+            font-size: .75rem;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #ffffd6;
+            font-weight: bold;
+        }
+        .divtrongastory{
+            display: flex; 
+            position: relative; 
+            justify-content: center;
+        }
+        .vitristorytext{
+            position: absolute; 
+            bottom: 16px;
+        }
+        .circleavtinstory{
+            border-radius: 50%;
+            position: absolute; 
+            left: 10%; 
+            top: 5%; 
+            border:#297be5 4px solid;
+        }
+        .icon_24px{
+            width: 24px;
+            height: 24px;
+        }
