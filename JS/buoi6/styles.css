@@ -1,0 +1,24 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    background-image: url("https://pbs.twimg.com/media/Fc2YtqWaIAEdSMq?format=jpg&name=4096x4096");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+}
+#div_tong{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#div_tong > .box{
+    width: 50%;
+    height: 50vh;
+    background-color: 	rgb(255, 245, 238,0.77);
+    display: flex;
+    padding: 10px;
+    border-radius: 15px;
+}
+
