@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="ket_qua"></div>
+    <script>
+        let link='fb.com/Pucube'
+        var mang;
+        var kq;
+        let regexlink= /^(?:(?:https|http):\/\/www\.)?(?:www\.)?(?:facebook\.com|fb\.com)\/[A-Za-z0-9\.?=]*(?:\/[A-Za-z0-9\.?=]*)*\/?$/
+        if (regexlink.test(link)){
+            if(link[link.length-1]=='/'){
+                link=link.slice(0,-1);
+            }
+
+            mang=link.split("/");
+            kq = mang[mang.length-1];
+            let chuoi_kiem_tra='profile.php?id='
+            if(kq.includes('profile.php?id=')){
+                kq = kq.slice(chuoi_kiem_tra.length,kq.length-1);
+                console.log(kq);
+            }
+
+            document.getElementById("ket_qua").innerHTML=kq;
+            
+        } else {
+            alert('Link có gì đó bị sai á cậu :>');
+        }
+
+        
+    </script>
+</body>
+</html>

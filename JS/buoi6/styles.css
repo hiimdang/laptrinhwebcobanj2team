@@ -1,10 +1,14 @@
+       
 body{
-    padding: 0px;
-    margin: 0px;
-    background-image: url("https://pbs.twimg.com/media/Fc2YtqWaIAEdSMq?format=jpg&name=4096x4096");
-    background-repeat: no-repeat;
-    background-position: top;
-    background-size: cover;
+padding: 0px;
+margin: 0px;
+background-image: url("https://pbs.twimg.com/media/Fc2YtqWaIAEdSMq?format=jpg&name=4096x4096");
+background-repeat: no-repeat;
+background-position: top;
+background-size: cover;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-size: 20px;
+
 }
 #div_tong{
     height: 100vh;
@@ -16,9 +20,138 @@ body{
 #div_tong > .box{
     width: 50%;
     height: 50vh;
-    background-color: 	rgb(255, 245, 238,0.77);
-    display: flex;
-    padding: 10px;
+    background-color: 	rgb(255, 245, 238,0.65);
+    /* padding: 10px; */
     border-radius: 15px;
+    transition: all 1s linear;
+    display: block;
+}
+.hidden {
+    display: none;
+    /* opacity: 0; */
+}
+#div_tong > .box > .box_tren{
+    width: 100% - 15px;
+    height: 12%;
+    padding: 0px 15px;
+    display: flex;
+    background: rgb(255, 245, 238,1);
+    border-radius: 15px 15px 0px 0px;
+    align-items: center;
+}
+#div_tong > .box > .box_duoi{
+    width: 100%;
+    height: 88%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.gay_task{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60px;
+    position: absolute;
+}
+.dot{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.red{
+    background-color: #fe5f58;
+}
+.yellow{
+    background-color: #febd2d;
+}
+.green{
+    background-color: #28c93f;
+}
+.thong_tin{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #01037c;
+}
+.facebook{
+    margin: 0px 10px;
+    height: 100%;
+    display: flex;
+}
+.twitter{
+    height: 100%;
+    margin: 0px 10px;
+    display: flex;
+}
+.active{
+    box-shadow: 0 3px 0 #00f8df inset;
+}
+a:link {
+color: #01037c;
+}
+/* visited link */
+a:visited {
+color: #01037c;
+}
+a:hover {
+    color: #00f8df;
+    transition: 0.75s;
+}
+.thong_tin_text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.facebook:hover,.twitter:hover{
+    box-shadow: 0 3px 0 #00f8df inset;
+    color: #00f8df;
+    transition: 0.75s;
 }
 
+input[type="text"]{
+    padding: 5px;
+    text-align: center;
+    height: 20px;
+    border:none;
+    /* border: 1px black solid; */
+    border-radius: 25px;
+    background-color: #00b0fc;
+    color: white;
+    margin-bottom: 25px;
+    width: 250px;
+}
+input[type="text"]::placeholder{
+    color: white;
+    padding: 5px;
+}
+input[type="text"]:focus{
+    outline: none;
+}
+#check_button{
+    background-color: #04aa6d;
+    border:none;
+    padding: 10px 30px;
+    cursor: pointer;
+    border-radius: 25px;
+    color: #f1faf5;
+    font-weight: bold;
+}
+#check_button:hover{
+   transition: 0.5s;
+   background: #059862;
+}
+#cuu_tinh{
+   position: absolute;
+   background-color: #3a5c8e;
+   color: white;
+   padding: 5px 10px;
+   display: none;
+   cursor: pointer;
+   border-radius: 25px;
+}
