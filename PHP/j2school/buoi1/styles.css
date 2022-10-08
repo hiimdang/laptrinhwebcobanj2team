@@ -57,8 +57,9 @@
             padding: 0px 10px;
         }
         #loi_so:empty{
-            height: 14px;
             width: 100%;
             height: 15px;
         }
-        
+        #ket_qua{
+            font-size: 14px;
+        }
