@@ -95,8 +95,11 @@
 <body>
         <?php 
         $ma = $_GET['ma'];
-        $ket_noi = mysqli_connect('localhost','root','','ban_giay');
+        require_once 'connect.php';
+        
         $sql = "select * from ban_giay where ma = $ma";
+        $ket_qua = mysqli_query($ket_noi,$sql); // cai nay la dang mang
+        $san_pham = mysqli_fetch_array($ket_qua);
 
         ?>
 
@@ -109,12 +112,13 @@
                     </a>
                 </li>
                 <li>
+                    <form autocomplete="off">
                     <div class="task_right">
-                        <div id="search_box">
+                        <div id="search_box" style="display: none;">
                             <div id="search_button">
                                 <img src="img/search.png" class="icon">
                             </div>
-                            <input type="text" placeholder="Search" id="input">
+                            <input type="search" placeholder="Search" id="input">
                         </div>
                         <a href="#">
                             <img src="img/white_heart.png" class="icon_nho" style="margin-left: 12px;">
@@ -123,19 +127,11 @@
                             <img src="img/buy_cart.png" class="icon_nho">
                         </a>
                     </div>
+                    </form>
                 </li>
             </ul>
         </div>
-        
-        <?php 
-        $ma = $_GET['ma'];
-        $ket_noi = mysqli_connect('localhost','root','','j2school');
-        mysqli_set_charset($ket_noi,'utf8');
 
-        $sql = "select * from ban_giay where ma = $ma";
-        $ket_qua = mysqli_query($ket_noi,$sql); // cai nay la dang mang
-        $san_pham = mysqli_fetch_array($ket_qua);
-        ?>
 
         <div class="div_duoi">
             <div class="product_div">
